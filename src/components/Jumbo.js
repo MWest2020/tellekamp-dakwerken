@@ -17,8 +17,8 @@ const JumboStyles = styled.div`
   }
 `
 const JumboContent = styled.div`
-  /* justify-content: center; */
-  /* margin-left: auto;
+  /* justify-content: center;
+  margin-left: auto;
   margin-right: auto; */
   text-align: center;
   margin: auto;

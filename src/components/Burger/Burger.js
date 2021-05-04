@@ -1,8 +1,7 @@
 import React from 'react'
 import { bool, func } from 'prop-types'
-import { Link } from 'gatsby'
+
 import styled from 'styled-components'
-import logo from './logo_wit.jpg'
 
 const StyledBurger = styled.button`
   position: absolute;
@@ -26,24 +25,24 @@ const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: var(--grey);
+    background: ${({ open }) => (open ? 'var(--black)' : 'var(--grey)')};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
-  }
 
-  :first-child {
-    transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
-  }
+    :nth-child(1) {
+      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
+    }
 
-  :nth-child(2) {
-    opacity: ${({ open }) => (open ? '0' : '1')};
-    transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
-  }
+    :nth-child(2) {
+      opacity: ${({ open }) => (open ? '0' : '1')};
+      transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
+    }
 
-  :nth-child(3) {
-    transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
+    :nth-child(3) {
+      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
+    }
   }
 `
 

@@ -1,65 +1,33 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
-import styled from 'styled-components'
+import React, { useState, useRef } from 'react'
+import { useOnClickOutside } from '../utils/hook'
+import Nav from '../components/Nav'
+import Jumbo from '../components/Jumbo'
+import HomePage from '../components/HomePage'
+import Burger from '../components/Burger'
+import Menu from '../components/Menu'
+import Form from '../components/Form'
+import Footer from '../components/Footer'
 
-const FormStyles = styled.form`
-  display: grid;
-  grid-row: auto;
-  align-items: center;
-  width: 80%;
-  max-width: fit-content;
-`
+import GlobalStyles from '../styles/GlobalStyles'
+import Typography from '../styles/Typography'
 
-export default function contact() {
+export default function Contact() {
+  const [open, setOpen] = useState(false)
+
+  const node = useRef()
+  useOnClickOutside(node, () => setOpen(false))
+
   return (
     <>
-      <FormStyles method="post" action="#">
-        <label htmlFor="name">
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value="Naam"
-            placeholder="Naam*"
-          />
-        </label>
-        <label htmlFor="email">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value="E-mail"
-            placeholder="Email*"
-          />
-        </label>
-        <label htmlFor="phone">
-          <input
-            type="text"
-            name="phone"
-            value="Telefoonnummer"
-            id="tel"
-            placeholder="Telefoonnummer*"
-          />
-        </label>
-        <label htmlFor="datum">
-          <input
-            type="text"
-            name="datum"
-            id="datum"
-            placeholder="Datum project"
-          />
-        </label>
-        <label htmlFor="message">
-          <textarea
-            name="message"
-            id="message"
-            rows="5"
-            placeholder="Aanvullende informatie"
-          />
-        </label>
-        <button type="submit">Verstuur nu!</button>
-      </FormStyles>
+      <GlobalStyles />
+      <Typography />
+      <Nav />
+      <div ref={node}>
+        <Burger open={open} setOpen={setOpen} />
+        <Menu open={open} setOpen={setOpen} />
+      </div>
+      <Form />
+      <Footer />
     </>
   )
 }

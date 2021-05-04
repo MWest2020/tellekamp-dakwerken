@@ -1,7 +1,8 @@
-// Menu.js
 import React from 'react'
+import { Link } from 'gatsby'
 import { bool } from 'prop-types'
 import styled from 'styled-components'
+import logo from './logo_wit.jpg'
 
 const StyledMenu = styled.nav`
   display: flex;
@@ -45,24 +46,12 @@ const StyledMenu = styled.nav`
 export default function Menu({ open }) {
   return (
     <StyledMenu open={open}>
-      <a href="/">
-        <span role="img" aria-label="about us">
-          &#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;
-        </span>
-        About us
-      </a>
-      <a href="/">
-        <span role="img" aria-label="price">
-          &#x1f4b8;
-        </span>
-        Pricing
-      </a>
-      <a href="/">
-        <span role="img" aria-label="contact">
-          &#x1f4e9;
-        </span>
-        Contact
-      </a>
+      <Link to="/">
+        <img src={logo} alt="logo" height="100px" width="250px" />
+      </Link>
+      <Link to="/projects">Projecten</Link>
+      <Link to="/about">Over ons</Link>
+      <Link to="/contact">Contact</Link>
     </StyledMenu>
   )
 }
