@@ -1,14 +1,35 @@
-import * as React from 'react'
+import React, { useState, useRef } from 'react';
+import { useOnClickOutside } from '../utils/hook';
+import Nav from '../components/Nav';
+import Jumbo from '../components/Jumbo';
 
-import Layout from '../components/Layout'
-import Seo from '../components/SEO'
+import Burger from '../components/Burger';
+import Menu from '../components/Menu';
+import Footer from '../components/Footer';
 
-const NotFoundPage = () => (
-  <Layout>
-    <Seo title="404: Not found" />
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+import GlobalStyles from '../styles/GlobalStyles';
+import Typography from '../styles/Typography';
 
-export default NotFoundPage
+export default function NotFoundPage() {
+    const [open, setOpen] = useState(false);
+
+    const node = useRef();
+    useOnClickOutside(node, () => setOpen(false));
+
+    return (
+        <>
+            <GlobalStyles />
+            <Typography />
+            <Nav />
+            <div ref={node}>
+                <Burger open={open} setOpen={setOpen} />
+                <Menu open={open} setOpen={setOpen} />
+            </div>
+            <div>
+                <p>Page Not found</p>
+            </div>
+
+            <Footer />
+        </>
+    );
+}
