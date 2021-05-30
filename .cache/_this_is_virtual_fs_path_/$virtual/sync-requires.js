@@ -4,6 +4,7 @@ const preferDefault = m => (m && m.default) || m
 
 
 exports.components = {
+  "component---cache-dev-404-page-js": preferDefault(require("C:\\Users\\mwest\\Desktop\\Clienten\\tellekamp-dakwerken-main\\.cache\\dev-404-page.js")),
   "component---src-pages-404-js": preferDefault(require("C:\\Users\\mwest\\Desktop\\Clienten\\tellekamp-dakwerken-main\\src\\pages\\404.js")),
   "component---src-pages-about-js": preferDefault(require("C:\\Users\\mwest\\Desktop\\Clienten\\tellekamp-dakwerken-main\\src\\pages\\about.js")),
   "component---src-pages-contact-js": preferDefault(require("C:\\Users\\mwest\\Desktop\\Clienten\\tellekamp-dakwerken-main\\src\\pages\\contact.js")),
